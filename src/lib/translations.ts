@@ -162,6 +162,9 @@ export const translations = {
       sending: "Enviando...",
       sent: "Mensagem enviada ✓",
       error: "Erro ao enviar. Tente novamente.",
+      successTitle: "Mensagem enviada!",
+      successSubtext: "Recebi sua mensagem. Em breve entro em contato.",
+      sendAnother: "Enviar outra mensagem",
     },
     footer: {
       rights: "Todos os direitos reservados.",
@@ -329,6 +332,9 @@ export const translations = {
       sending: "Sending...",
       sent: "Message sent ✓",
       error: "Failed to send. Please try again.",
+      successTitle: "Message sent!",
+      successSubtext: "I received your message and will get back to you shortly.",
+      sendAnother: "Send another message",
     },
     footer: {
       rights: "All rights reserved.",

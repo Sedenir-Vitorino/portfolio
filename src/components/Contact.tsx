@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Mail, Send } from "lucide-react";
+import { Mail, Send, CheckCircle2, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 function InstagramIcon() {
@@ -42,7 +42,6 @@ export default function Contact() {
       if (res.ok) {
         setStatus("sent");
         setForm({ name: "", email: "", message: "" });
-        setTimeout(() => setStatus("idle"), 4000);
       } else {
         setStatus("error");
         setTimeout(() => setStatus("idle"), 4000);
@@ -99,66 +98,86 @@ export default function Contact() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-xs text-zinc-500 dark:text-zinc-400 mb-1.5">
-                {ct.nameLabel}
-              </label>
-              <input
-                type="text"
-                required
-                placeholder={ct.namePlaceholder}
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className={inputClass}
-              />
+          {status === "sent" ? (
+            <div className="flex flex-col items-center justify-center min-h-[340px] text-center p-10 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/40">
+              <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mb-6">
+                <CheckCircle2 size={32} className="text-green-500" />
+              </div>
+              <h3 className="text-2xl font-semibold text-zinc-900 dark:text-white mb-3">
+                {ct.successTitle}
+              </h3>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-xs mb-8">
+                {ct.successSubtext}
+              </p>
+              <button
+                onClick={() => setStatus("idle")}
+                className="inline-flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              >
+                {ct.sendAnother}
+                <ArrowRight size={14} />
+              </button>
             </div>
-            <div>
-              <label className="block text-xs text-zinc-500 dark:text-zinc-400 mb-1.5">
-                {ct.emailLabel}
-              </label>
-              <input
-                type="email"
-                required
-                placeholder={ct.emailPlaceholder}
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className={inputClass}
-              />
-            </div>
-            <div>
-              <label className="block text-xs text-zinc-500 dark:text-zinc-400 mb-1.5">
-                {ct.messageLabel}
-              </label>
-              <textarea
-                required
-                rows={5}
-                placeholder={ct.messagePlaceholder}
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className={`${inputClass} resize-none`}
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={status === "sending" || status === "sent"}
-              className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-medium transition-colors disabled:opacity-60 disabled:cursor-not-allowed ${
-                status === "error"
-                  ? "bg-red-600 text-white hover:bg-red-700"
-                  : "bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 hover:bg-zinc-700 dark:hover:bg-zinc-100"
-              }`}
-            >
-              {status === "idle" && (
-                <>
-                  {ct.submit}
-                  <Send size={14} />
-                </>
-              )}
-              {status === "sending" && ct.sending}
-              {status === "sent" && ct.sent}
-              {status === "error" && ct.error}
-            </button>
-          </form>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-xs text-zinc-500 dark:text-zinc-400 mb-1.5">
+                  {ct.nameLabel}
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder={ct.namePlaceholder}
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  className={inputClass}
+                />
+              </div>
+              <div>
+                <label className="block text-xs text-zinc-500 dark:text-zinc-400 mb-1.5">
+                  {ct.emailLabel}
+                </label>
+                <input
+                  type="email"
+                  required
+                  placeholder={ct.emailPlaceholder}
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  className={inputClass}
+                />
+              </div>
+              <div>
+                <label className="block text-xs text-zinc-500 dark:text-zinc-400 mb-1.5">
+                  {ct.messageLabel}
+                </label>
+                <textarea
+                  required
+                  rows={5}
+                  placeholder={ct.messagePlaceholder}
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  className={`${inputClass} resize-none`}
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-medium transition-colors disabled:opacity-60 disabled:cursor-not-allowed ${
+                  status === "error"
+                    ? "bg-red-600 text-white hover:bg-red-700"
+                    : "bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 hover:bg-zinc-700 dark:hover:bg-zinc-100"
+                }`}
+              >
+                {status === "idle" && (
+                  <>
+                    {ct.submit}
+                    <Send size={14} />
+                  </>
+                )}
+                {status === "sending" && ct.sending}
+                {status === "error" && ct.error}
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </section>
