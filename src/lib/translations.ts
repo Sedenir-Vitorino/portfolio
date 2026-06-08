@@ -21,11 +21,11 @@ export const translations = {
     about: {
       label: "Sobre",
       heading: "Mentalidade de engenharia,\nsoftware de alto nível.",
-      p1: "Sou estudante de Engenharia Civil e Desenvolvedor Full Stack com profundo entendimento de como as empresas operam — não apenas tecnicamente, mas estrutural e operacionalmente.",
+      p1: "Desenvolvedor Full Stack com profundo entendimento de como as empresas operam — não apenas tecnicamente, mas estrutural e operacionalmente.",
       p2: "Essa combinação me dá uma vantagem real: não escrevo apenas código. Analiso fluxos de trabalho, identifico gargalos e projeto sistemas que resolvem problemas operacionais com precisão e clareza.",
       p3: "De plataformas SaaS a ferramentas de gestão interna, construo softwares que se integram à forma como seu negócio realmente funciona — e não o contrário.",
       highlights: [
-        { label: "Formação", value: "Engenharia Civil + Desenvolvimento de Software" },
+        { label: "Formação", value: "Desenvolvimento de Software" },
         { label: "Foco", value: "Sistemas Empresariais e Plataformas SaaS" },
         { label: "Abordagem", value: "Desenvolvimento orientado à engenharia" },
         { label: "Setor", value: "Construção, Empresas e Tecnologia" },
