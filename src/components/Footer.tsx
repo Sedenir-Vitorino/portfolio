@@ -23,7 +23,7 @@ export default function Footer() {
             Email
           </a>
           <a
-            href="https://instagram.com/sedenirvitorino"
+            href="https://instagram.com/sedenir.dev"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"

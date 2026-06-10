@@ -85,7 +85,7 @@ export default function Contact() {
                 sedenirvitorino@gmail.com
               </a>
               <a
-                href="https://instagram.com/sedenirvitorino"
+                href="https://instagram.com/sedenir.dev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors group"
@@ -93,7 +93,7 @@ export default function Contact() {
                 <div className="w-9 h-9 rounded-lg border border-zinc-200 dark:border-zinc-800 flex items-center justify-center group-hover:border-zinc-300 dark:group-hover:border-zinc-700 transition-colors shrink-0">
                   <InstagramIcon />
                 </div>
-                @sedenirvitorino
+                @sedenir.dev
               </a>
             </div>
           </div>
